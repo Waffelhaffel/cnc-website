@@ -2,6 +2,19 @@ export const site = {
   name: "CNC Cologne News Corporation GmbH",
   shortName: "CNC",
   url: "https://www.cnc-nrw.de",
+  email: "info@cnc-tv.de",
+  register: {
+    seat: "Köln",
+    court: "Amtsgericht Köln",
+    number: "HRB 32305",
+    managingDirector: "Jörg Zajonc",
+    responsible: "Jörg Zajonc",
+  },
+  privacy: {
+    officer: "Christoph Langenbach",
+    email: "datenschutz@cnc-tv.de",
+    updated: "Mai 2018",
+  },
   locations: [
     {
       city: "Köln",

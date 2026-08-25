@@ -42,6 +42,64 @@
   margin-bottom: 8px;
 }
 
+.h3 {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+  margin: 30px 0 12px;
+}
+
+.mail {
+  color: var(--accent);
+}
+
+.h4 {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--fg-body);
+  margin: 22px 0 10px;
+}
+
+.meta {
+  color: var(--fg-muted-2);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.list {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--fg-body);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.list li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.link {
+  color: var(--accent);
+  word-break: break-word;
+}
+
 @media (max-width: 860px) {
   .body {
     padding-bottom: 80px;
