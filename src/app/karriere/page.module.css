@@ -1,0 +1,46 @@
+.head {
+  max-width: 1200px;
+}
+
+.lead {
+  color: var(--fg-body);
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 640px;
+  margin-top: 34px;
+}
+
+.leadLink {
+  color: var(--accent);
+  border-bottom: 1px solid;
+}
+
+.jobs {
+  padding: 40px var(--pad-x) 120px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.note {
+  margin-top: 44px;
+  padding: 32px;
+  border: 1px dashed var(--line-3);
+  font-size: 15px;
+  color: var(--fg-muted);
+  line-height: 1.6;
+}
+
+.noteStrong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+@media (max-width: 860px) {
+  .jobs {
+    padding-bottom: 80px;
+  }
+
+  .note {
+    padding: 24px;
+  }
+}

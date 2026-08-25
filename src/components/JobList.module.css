@@ -1,0 +1,144 @@
+.count {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg-muted-2);
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-2);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.job {
+  border-bottom: 1px solid rgba(244, 242, 236, 0.12);
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 6px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trigger:hover .title {
+  color: var(--accent);
+}
+
+.no {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  width: 34px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 2.4vw, 26px);
+  letter-spacing: -0.01em;
+  flex: 1;
+  line-height: 1.15;
+  transition: color 0.2s;
+}
+
+.plus {
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--accent);
+  transition: transform 0.25s;
+  line-height: 1;
+}
+
+.plusOpen {
+  transform: rotate(45deg);
+}
+
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.35s ease, opacity 0.3s;
+}
+
+.panelOpen {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.panelInner {
+  overflow: hidden;
+}
+
+.panelBody {
+  padding: 6px 6px 36px 54px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 13px;
+  color: var(--fg-body);
+  border: 1px solid var(--line-3);
+  padding: 6px 12px;
+}
+
+.blockLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  list-style: none;
+}
+
+.bullet {
+  display: flex;
+  gap: 12px;
+  color: var(--fg-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.bullet::before {
+  content: "—";
+  color: var(--accent);
+}
+
+.blockText {
+  color: var(--fg-body);
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 760px;
+}
+
+.apply {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+  align-self: flex-start;
+}
+
+@media (max-width: 640px) {
+  .panelBody {
+    padding-left: 6px;
+  }
+}

@@ -1,150 +1,372 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
+/* ============ HERO ============ */
 
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
+.hero {
+  position: relative;
+  min-height: 88vh;
   display: flex;
-  flex: 1;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+  justify-content: flex-end;
+  padding: 110px var(--pad-x) 40px;
+  overflow: hidden;
 }
 
-.main {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-hero);
+  background-image: repeating-linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0.045) 0 2px,
+    transparent 2px 11px
+  );
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.heroVeil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 11, 0.55) 0%,
+    rgba(10, 10, 11, 0.2) 40%,
+    rgba(10, 10, 11, 0.95) 100%
+  );
+}
+
+.heroNote {
+  position: absolute;
+  top: 34px;
+  left: var(--pad-x);
+  font-size: 12px;
+  font-style: italic;
+  color: var(--fg-muted-2);
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+}
+
+.heroTitle {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 900;
+  font-size: clamp(52px, 9vw, 148px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.dot {
+  color: var(--accent);
+}
+
+.heroLead {
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: #c9c4ba;
+  margin-top: 22px;
+  max-width: 620px;
+}
+
+/* ============ SEGMENT-LEISTE ============ */
+
+/* Trennlinien liegen auf den Kacheln, nicht in den Grid-Lücken —
+   sonst zeichnen sich leere Zellen der letzten Zeile als graue Fläche ab. */
+.segments {
+  position: relative;
+  z-index: 2;
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  border-top: 1px solid rgba(244, 242, 236, 0.16);
+}
+
+.segment {
+  padding: 22px 24px;
   text-align: left;
-  gap: 24px;
-}
-
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
   cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+  border-top: 2px solid transparent;
+  border-right: 1px solid rgba(244, 242, 236, 0.16);
+  border-bottom: 1px solid rgba(244, 242, 236, 0.16);
+  background: var(--bg);
+  opacity: 0.6;
+  transition: opacity 0.3s, background 0.3s, border-color 0.3s;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.segment:hover {
+  opacity: 1;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.segmentActive {
+  border-top-color: var(--accent);
+  background: var(--accent-soft);
+  opacity: 1;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+/* Kein Strich am rechten Rand der Leiste. */
+.segments > .segment:last-child {
+  border-right-color: transparent;
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
+/* Unter 500 px passt nur eine Spalte — dann entfällt der Spaltenstrich. */
+@media (max-width: 499px) {
+  .segment {
+    border-right-color: transparent;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+.segmentNo,
+.segmentTitle,
+.segmentSub {
+  display: block;
 }
 
-.code {
-  font-family: var(--font-geist-mono);
-  font-size: 0.9em;
-  background: color-mix(in srgb, currentColor 8%, transparent);
-  padding: 0.1em 0.4em;
-  border-radius: 6px;
+.segmentNo {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.segmentTitle {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.segmentSub {
+  font-size: 13px;
+  color: #9a958b;
+  margin-top: 5px;
+}
+
+/* ============ KOMPETENZEN ============ */
+
+.competences {
+  padding: 110px var(--pad-x);
+}
+
+.sectionHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 64px;
+  flex-wrap: wrap;
+}
+
+.h2 {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 800;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-top: 18px;
+}
+
+.sectionAside {
+  max-width: 360px;
+  color: var(--fg-muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.blockList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.block {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.1fr) minmax(280px, 1fr);
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+}
+
+.blockMedia {
+  min-height: 280px;
+}
+
+.blockBody {
+  padding: 44px 44px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blockNo {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.blockTitle {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 3vw, 36px);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.02;
+  margin-bottom: 16px;
+}
+
+.blockText {
+  color: var(--fg-body-2);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* ============ CTA-BAND ============ */
+
+.ctaSection {
+  padding: 0 var(--pad-x) 120px;
+}
+
+.ctaBand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 56px clamp(28px, 4vw, 56px);
+  background: var(--accent);
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.ctaKicker {
+  font-size: 15px;
+  font-weight: 600;
+  opacity: 0.75;
+  margin-bottom: 14px;
+}
+
+.ctaTitle {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 900;
+  font-size: clamp(30px, 4.5vw, 56px);
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.ctaButton {
+  font-size: 16px;
+  font-weight: 600;
+  border: 1.5px solid #fff;
+  padding: 18px 30px;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.ctaButton:hover {
+  background: #fff;
+  color: var(--accent);
+}
+
+/* ============ FLAGSHIP CASES ============ */
+
+.cases {
+  padding: 0 var(--pad-x) 120px;
+}
+
+.casesHead {
+  margin-bottom: 48px;
+}
+
+.h2Cases {
+  font-size: clamp(30px, 4.5vw, 56px);
+}
+
+.allLink {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.caseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.caseCard {
+  display: block;
+}
+
+.caseMedia {
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+}
+
+.caseCard:hover .caseMedia {
+  border-color: rgba(196, 21, 28, 0.6);
+}
+
+.caseTag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--fg);
+  background: var(--accent);
+  padding: 4px 9px;
+  z-index: 2;
+}
+
+.caseTitle {
+  margin-top: 16px;
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.caseSub {
+  font-size: 15px;
+  color: var(--fg-muted);
+  margin-top: 8px;
+  line-height: 1.55;
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 860px) {
+  .block {
+    grid-template-columns: 1fr;
+  }
+
+  .blockMedia {
+    min-height: 220px;
+  }
+
+  .blockBody {
+    padding: 32px 26px 36px;
+  }
+
+  .competences {
+    padding: 72px var(--pad-x);
+  }
+
+  .sectionHead {
+    margin-bottom: 40px;
+  }
+
+  .ctaSection,
+  .cases {
+    padding-bottom: 80px;
+  }
+
+  .ctaBand {
+    padding: 36px 26px;
+  }
 }

@@ -1,0 +1,77 @@
+.footer {
+  border-top: 1px solid var(--line-2);
+  padding: 64px var(--pad-x) 40px;
+  background: var(--bg-footer);
+}
+
+.grid {
+  max-width: var(--shell-wide);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.brandText {
+  font-size: 13px;
+  color: var(--fg-muted-2);
+  margin-top: 14px;
+  line-height: 1.6;
+}
+
+.colTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 16px;
+}
+
+.colBody {
+  font-size: 14px;
+  color: var(--fg-muted);
+  line-height: 1.8;
+}
+
+.ctaWrap {
+  display: flex;
+  align-items: flex-start;
+}
+
+.cta {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+  border: 1.5px solid var(--accent);
+  padding: 14px 24px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cta:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.bottom {
+  max-width: var(--shell-wide);
+  margin: 48px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(244, 242, 236, 0.1);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--fg-muted-3);
+}
+
+.legal {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}

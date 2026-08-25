@@ -1,0 +1,22 @@
+.label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dash {
+  width: 26px;
+  height: 2px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.textMuted {
+  color: #c9c4ba;
+}

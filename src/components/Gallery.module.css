@@ -1,0 +1,81 @@
+.gallery {
+  position: relative;
+  aspect-ratio: 21 / 9;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.slideActive {
+  opacity: 1;
+}
+
+.arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  color: rgba(244, 242, 236, 0.5);
+  z-index: 3;
+  transition: color 0.2s;
+}
+
+.arrow:hover {
+  color: #fff;
+}
+
+.arrowPrev {
+  left: 0;
+  justify-content: flex-start;
+  padding-left: 24px;
+}
+
+.arrowNext {
+  right: 0;
+  justify-content: flex-end;
+  padding-right: 24px;
+}
+
+.dots {
+  position: absolute;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  z-index: 3;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  background: rgba(244, 242, 236, 0.35);
+  transition: width 0.3s, background 0.3s;
+  padding: 0;
+}
+
+.dotActive {
+  width: 26px;
+  background: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .gallery {
+    aspect-ratio: 4 / 3;
+  }
+}

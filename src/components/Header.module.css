@@ -1,0 +1,139 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px var(--pad-x);
+  background: rgba(10, 10, 11, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(244, 242, 236, 0.1);
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand:hover {
+  color: inherit;
+}
+
+.logo {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+.brandText {
+  font-size: 11px;
+  color: var(--fg-muted-2);
+  line-height: 1.4;
+  border-left: 1px solid rgba(244, 242, 236, 0.14);
+  padding-left: 14px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+
+.link {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  color: var(--fg-muted);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.link:hover {
+  color: var(--fg);
+  border-bottom-color: rgba(196, 21, 28, 0.5);
+}
+
+.linkActive {
+  color: var(--fg);
+  border-bottom-color: var(--accent);
+}
+
+.linkActive:hover {
+  color: var(--fg);
+  border-bottom-color: var(--accent);
+}
+
+/* ---- Mobile ---- */
+
+.burger {
+  display: none;
+  width: 40px;
+  height: 34px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--fg);
+  transition: transform 0.25s, opacity 0.2s;
+}
+
+.burgerOpen span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burgerOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.burgerOpen span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .burger {
+    display: flex;
+  }
+
+  .nav {
+    display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-top: 8px;
+  }
+
+  .navOpen {
+    display: flex;
+  }
+
+  .link {
+    font-size: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line-list);
+  }
+
+  .link:hover,
+  .linkActive {
+    border-bottom-color: var(--line-list);
+  }
+
+  .linkActive {
+    color: var(--accent);
+  }
+}
